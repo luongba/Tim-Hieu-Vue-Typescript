@@ -1,27 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <div class="container">
+        <component :is="$route.meta.layout">
+            <router-view></router-view>
+        </component>
+    </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
-
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-});
+<script lang="ts" setup>
+import { useRouter, useRoute } from "vue-router";
+const router = useRouter();
+const route = useRoute();
 </script>
 
 <style>
+* {
+    box-sizing: border-box;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.container {
+    width: 1000px;
+    max-width: 100%;
+    margin: 0 auto;
 }
 </style>
