@@ -26,7 +26,6 @@ const loadImages = (entry: any): void => {
     const url = entry.getAttribute("lazy-src");
 
     entry.setAttribute("src", url);
-    entry.removeAttribute("lazy-src");
 };
 onUpdated(() => {
     if ("IntersectionObserver" in window) {
